@@ -3,8 +3,13 @@
 use App\Http\Controllers\CalculatorController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [\App\Http\Controllers\LoginController::class, 'index']);
+Route::get('login', [\App\Http\Controllers\LoginController::class, 'index'])->name('login');
+Route::post('action-login', [\App\Http\Controllers\LoginController::class, 'actionLogin'])->name('action-login');
+Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 });
 
 Route::get('belajar', [\App\Http\Controllers\BelajarController::class, 'index']);
