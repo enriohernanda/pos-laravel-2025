@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Alert;
+// use Alert;
 use Illuminate\Support\Facades\Auth;
 
-// use RealRashid\SweetAlert\Facades\Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class LoginController extends Controller
