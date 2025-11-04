@@ -17,7 +17,8 @@ class UserController extends Controller
         // SELECT * FROM USERS Order By id DESC
         // $users = User::all();
         $users = User::orderBy('id', 'DESC')->get();
-        return view('user.index', compact('users'));
+        $title = 'Data User';
+        return view('user.index', compact('users', 'title'));
         // return view('user.index', ['usr' => $users]);
     }
 
@@ -26,7 +27,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $title = 'Add User';
+        return view('user.create', compact('title'));
     }
 
     /**
