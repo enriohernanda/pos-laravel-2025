@@ -19,6 +19,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('user', \App\Http\Controllers\UserController::class);
     Route::resource('category', \App\Http\Controllers\CategoriesController::class);
     Route::resource('role', \App\Http\Controllers\RoleController::class);
+    Route::resource('product', \App\Http\Controllers\ProductController::class);
+    Route::resource('profile', \App\Http\Controllers\ProfileController::class);
+    Route::post('change-Password', [\App\Http\Controllers\ProfileController::class, 'changePassword'])->name('profile.change-Password');
 });
 
 Route::get('belajar', [\App\Http\Controllers\BelajarController::class, 'index']);
