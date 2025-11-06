@@ -21,7 +21,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('role', \App\Http\Controllers\RoleController::class);
     Route::resource('product', \App\Http\Controllers\ProductController::class);
     Route::resource('profile', \App\Http\Controllers\ProfileController::class);
+    Route::resource('order', \App\Http\Controllers\OrderController::class);
     Route::post('change-Password', [\App\Http\Controllers\ProfileController::class, 'changePassword'])->name('profile.change-Password');
+    Route::post('change-profile', [\App\Http\Controllers\ProfileController::class, 'changeprofile'])->name('profile.change-profile');
+    Route::get('get-products', [\App\Http\Controllers\OrderController::class, 'getProducts'])->name('get-products');
 });
 
 Route::get('belajar', [\App\Http\Controllers\BelajarController::class, 'index']);
@@ -35,7 +38,7 @@ Route::get('belajar/kali', [\App\Http\Controllers\BelajarController::class, 'kal
 Route::post('storeKali', [\App\Http\Controllers\BelajarController::class, 'storeKali'])->name('storeKali');
 
 Route::get('calculator', [CalculatorController::class, 'create']);
-Route::post('calculator/create', [CalculatorController::class, 'store'])->name('calculator.store');
+Route::post('calculator/store', [CalculatorController::class, 'store'])->name('calculator.store');
 
 // get: preview / menampilkan
 // post: mengirim sebuah data melalui form
