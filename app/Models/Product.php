@@ -16,6 +16,37 @@ class Product extends Model
         'is_active'
     ];
 
+    protected $appends = [
+        'is_active_class',
+        'is_active_text'
+    ];
+
+    public function getIsActiveClassAttribute()
+    {
+        switch ($this->is_active) {
+            case '1':
+                return "badge text-bg-primary";
+                break;
+
+            default:
+                return "badge text-bg-warning";
+                break;
+        }
+    }
+
+    public function getIsActiveTextAttribute()
+    {
+        switch ($this->is_active) {
+            case '1':
+                return "publish";
+                break;
+
+            default:
+                return "draft";
+                break;
+        }
+    }
+
     // one to many : belongsTo
     public function category()
     {
